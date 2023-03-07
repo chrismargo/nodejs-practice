@@ -37,7 +37,6 @@ var pathObj = path.parse(__filename);
 console.log(pathObj);
 */
 
-
 // OS MODULE
 /*
 const os = require('os');
@@ -56,6 +55,7 @@ console.log(`Free memory: ${freeMemory}`);
 */
 
 // FILE STORAGE MODULE
+/*
 const fs = require('fs');
 
 // const files = fs.readdirSync('./');
@@ -65,3 +65,10 @@ fs.readdir('./', function(err, files) {
     if (err) console.log('Error', err);
     else console.log('Result', files);
 });
+*/
+
+const EventEmitter = require('events');
+const emitter = new EventEmitter();
+
+// Raise an event
+emitter.emit('messageLogged');
