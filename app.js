@@ -70,5 +70,23 @@ fs.readdir('./', function(err, files) {
 const EventEmitter = require('events');
 const emitter = new EventEmitter();
 
+// Register a listener
+// emitter.on('messageLogged', (arg) => { // e, eventArg
+//     console.log('Listener called', arg);
+// });
+
+// Registering event named "logging"
+emitter.on('logging', (arg) => { // e, eventArg
+    console.log('Listener called', arg);
+});
+
 // Raise an event
-emitter.emit('messageLogged');
+// emitter.emit('messageLogged', {
+//     id: 1,
+//     url: 'http://'
+// });
+
+// Raise: logging (data: message)
+emitter.emit('logging', {
+    data: "Hello, World!"
+});
