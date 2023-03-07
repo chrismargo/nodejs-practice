@@ -70,23 +70,22 @@ fs.readdir('./', function(err, files) {
 const EventEmitter = require('events');
 const emitter = new EventEmitter();
 
-// Register a listener
-// emitter.on('messageLogged', (arg) => { // e, eventArg
-//     console.log('Listener called', arg);
-// });
+const Logger = require('./logger.js');
+const logger = new Logger();
 
-// Registering event named "logging"
-emitter.on('logging', (arg) => { // e, eventArg
+// Register a listener
+logger.on('messageLogged', (arg) => { // e, eventArg
     console.log('Listener called', arg);
 });
 
-// Raise an event
-// emitter.emit('messageLogged', {
-//     id: 1,
-//     url: 'http://'
+logger.log('Chris');
+
+// Registering event named "logging"
+// emitter.on('logging', (arg) => { // e, eventArg
+//     console.log('Listener called', arg);
 // });
 
 // Raise: logging (data: message)
-emitter.emit('logging', {
-    data: "Hello, World!"
-});
+// emitter.emit('logging', {
+//     data: "Hello, World!"
+// });
